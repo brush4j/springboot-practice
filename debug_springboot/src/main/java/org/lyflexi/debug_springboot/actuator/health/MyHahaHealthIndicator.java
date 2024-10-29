@@ -6,7 +6,7 @@ import org.springframework.boot.actuate.health.Health;
 import org.springframework.stereotype.Component;
 
 /**
- * @author lfy
+ * @author lyflexi
  * @Description
  * @create 2023-05-08 22:59
  *

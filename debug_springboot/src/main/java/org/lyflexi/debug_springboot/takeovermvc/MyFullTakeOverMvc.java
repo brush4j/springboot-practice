@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @author lfy
+ * @author lyflexi
  * @Description
  * @create 2023-04-18 17:04
  */

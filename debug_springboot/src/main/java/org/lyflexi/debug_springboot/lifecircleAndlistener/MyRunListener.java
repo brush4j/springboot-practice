@@ -8,7 +8,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 import java.time.Duration;
 
 /**
- * @author lfy
+ * @author lyflexi
  * @Description  SpringBoot应用生命周期监听
  * @create 2023-04-24 14:46
  */

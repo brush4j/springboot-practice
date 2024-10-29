@@ -1,0 +1,4 @@
+robot:
+  name: sample-firstlevel
+  age: 18
+  email: firstlevel@qq.com

@@ -4,7 +4,7 @@ package org.lyflexi.debug_springboot.actuator.health;
 import org.springframework.stereotype.Component;
 
 /**
- * @author lfy
+ * @author lyflexi
  * @Description
  * @create 2023-05-08 22:58
  */

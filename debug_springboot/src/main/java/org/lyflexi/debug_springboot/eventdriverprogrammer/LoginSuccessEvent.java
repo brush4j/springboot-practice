@@ -3,7 +3,7 @@ package org.lyflexi.debug_springboot.eventdriverprogrammer;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * @author lfy
+ * @author lyflexi
  * @Description  登录成功事件。所有事件都推荐继承 ApplicationEvent
  * @create 2023-04-24 18:51
  */

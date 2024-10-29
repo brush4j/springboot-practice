@@ -1,0 +1,4 @@
+robot:
+  name: sample-secondlevel
+  age: 18
+  email: secondlevel@qq.com
