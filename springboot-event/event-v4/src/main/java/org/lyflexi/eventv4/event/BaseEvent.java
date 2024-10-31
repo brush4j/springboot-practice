@@ -1,6 +1,8 @@
 package org.lyflexi.eventv4.event;
 
 import lombok.Data;
+import org.springframework.core.ResolvableType;
+import org.springframework.core.ResolvableTypeProvider;
 
 /**
  * @Description:
@@ -9,7 +11,7 @@ import lombok.Data;
  * @Date: 2024/10/31 13:47
  */
 @Data
-public class BaseEvent<T>  /*implements ResolvableTypeProvider */{
+public class BaseEvent<T>  implements ResolvableTypeProvider {
     private T data;
     private String addOrUpdate;
 
@@ -18,8 +20,8 @@ public class BaseEvent<T>  /*implements ResolvableTypeProvider */{
         this.addOrUpdate = addOrUpdate;
     }
 
-/*    @Override
+    @Override
     public ResolvableType getResolvableType() {
         return ResolvableType.forClassWithGenerics(getClass(), ResolvableType.forInstance(getData()));
-    }*/
+    }
 }
