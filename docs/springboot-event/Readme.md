@@ -1,4 +1,7 @@
-Spring在泛型情况下的事件处理：
+Spring在泛型情况下的事件处理解决方案：
+
+> https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html#context-functionality-events-generics
+
 # 实现接口ResolvableTypeProvider
 ```java
 @Data
