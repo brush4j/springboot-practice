@@ -1,4 +1,40 @@
-Spring在泛型情况下的事件处理解决方案：
+形如下面的发布消息的代码：
+```java
+@RestController
+@Slf4j
+public class MockController {
+    @Autowired
+    ApplicationContext applicationContext;
+    
+    @GetMapping("/publishEvent")
+    public void publishEvent(){
+        applicationContext.publishEvent(new BaseEvent<>(new Order("order"),"add"));
+//        applicationContext.publishEvent(new BaseEvent<>(new Person("person"),"add"));
+    }
+}
+```
+new出来的`BaseEvent<>(new Order("order"),"add")`或者是`BaseEvent<>(new Person("person"),"add")`,在编译时泛型信息Order和Person会被擦除
+
+这也是为什么下面的监听逻辑没有生效的原因：
+```java
+@Slf4j
+@Component
+public class EventListenerService {
+
+    @EventListener
+    public void handlePersonEvent(BaseEvent<Person> baseEvent) {
+        log.info("监听到PersonEvent: {}", baseEvent);
+    }
+
+    @EventListener
+    public void handleOrderEvent(BaseEvent<Order> baseEvent) {
+        log.info("监听到OrderEvent: {}", baseEvent);
+    }
+}
+
+```
+
+Spring在泛型情况下的事件处理解决方案如下：
 
 > https://docs.spring.io/spring-framework/reference/core/beans/context-introduction.html#context-functionality-events-generics
 
