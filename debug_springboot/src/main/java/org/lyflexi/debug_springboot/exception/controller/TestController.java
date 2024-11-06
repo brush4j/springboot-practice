@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/mock")
 @Slf4j
-public class MockController {
+public class TestController {
 
     @GetMapping(value = "/formatException")
     public void formatExceptionAdvice (){
