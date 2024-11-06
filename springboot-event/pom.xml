@@ -25,7 +25,10 @@
     <module>event-v1</module>
     <module>event-v2</module>
     <module>event-v3</module>
+<!--    spring优雅解决方案-->
     <module>event-v4</module>
+<!--    公司内或者普通的tedious解决方案-->
+    <module>event-v5</module>
   </modules>
   <scm>
     <connection/>
