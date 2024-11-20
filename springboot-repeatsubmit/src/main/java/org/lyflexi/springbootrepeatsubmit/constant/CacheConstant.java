@@ -15,7 +15,7 @@ public class CacheConstant {
     /**
      * 分布式锁获取超时时间，单位：毫秒
      */
-    public static final long DLOCK_TRY_LOCK_TIMEOUT = 2000L;
+    public static final long DLOCK_TRY_LOCK_TIMEOUT = 10000L;
 
     /**
      * 添加货架接口的分布式锁方法名称

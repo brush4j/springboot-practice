@@ -3,6 +3,8 @@ package org.lyflexi.springbootrepeatsubmit.config;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,11 +15,18 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RedissonConfig {
 
+    @Autowired
+    RedisProperties redisProperties;
+
     @Bean
     public RedissonClient redissonClient(){
         Config config = new Config();
-        // 可以用"rediss://"来启用SSL连接
-        config.useSingleServer().setAddress("redis://192.168.18.100:6479");
+
+        config.useSingleServer()
+                .setAddress("redis://" + redisProperties.getHost() + ":" + redisProperties.getPort())
+                .setPassword(redisProperties.getPassword())
+                .setDatabase(redisProperties.getDatabase());
         return Redisson.create(config);
+
     }
 }

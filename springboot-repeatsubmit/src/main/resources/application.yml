@@ -1,6 +1,12 @@
+#spring:
+#  data:
+#    redis:
+#      host: 192.168.18.100
+#      port: 6479
+#      database: 0
 spring:
   data:
     redis:
-      host: 192.168.18.100
-      port: 6479
-      database: 0
+      host: 10.46.3.164
+      port: 6379
+      database: 10

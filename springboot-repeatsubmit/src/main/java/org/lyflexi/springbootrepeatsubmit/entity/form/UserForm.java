@@ -10,6 +10,6 @@ import lombok.Data;
  */
 @Data
 public class UserForm {
-    String name;
-    Integer age;
+    private String name;
+    private Integer age;
 }

@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class MockServiceImpl implements MockService {
     @Override
-    @DistributedLock(method = CacheConstant.ADD_FORM, uniqueKey = "#addForm.name")
+    @DistributedLock(method = CacheConstant.ADD_FORM, uniqueKey = "#form.name")
     public void addForm(UserForm form) {
         log.info("current form:{}",form);
     }

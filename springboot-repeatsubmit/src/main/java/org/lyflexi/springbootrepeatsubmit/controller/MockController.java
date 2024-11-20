@@ -26,7 +26,7 @@ public class MockController {
      * 重复提交
      */
     @PostMapping(value = "/repeatSubmit")
-    public void gitChinesePost (@RequestBody UserForm form) {
+    public void repeatSubmit (@RequestBody UserForm form) {
         mockService.addForm(form);
     }
 }

@@ -51,7 +51,7 @@ public class DistributedLockAspect {
         String uniqueKeyExpr = distributedLock.uniqueKey();
         if (uniqueKeyExpr.matches("^#.*.$")) {
             String uniqueKey = parser.parseExpression(uniqueKeyExpr).getValue(context, String.class);
-            lockKey = KeyUtil.buildKey(CacheConstant.DLOCK_PREFIX, MessageFormat.format(":{0}:{1}:{2}",
+            lockKey = KeyUtil.buildKey(CacheConstant.DLOCK_PREFIX, MessageFormat.format(":{0}:{1}",
                     uniqueKey, distributedLock.method()));
         }
         Object obj = null;
@@ -67,6 +67,7 @@ public class DistributedLockAspect {
             } finally {
                 if (lock != null && lock.isHeldByCurrentThread()) {
                     try {
+                        Thread.sleep(5000);
                         log.info("分布式锁解锁成功：key {}", lockKey);
                         lock.unlock();
                     } catch (Exception e) {
