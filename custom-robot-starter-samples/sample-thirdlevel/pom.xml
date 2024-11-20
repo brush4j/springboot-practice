@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lyflexi</groupId>
-        <artifactId>samples-starter</artifactId>
+        <artifactId>custom-robot-starter-samples</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.lyflexi</groupId>
-    <artifactId>sample-firstlevel</artifactId>
+    <artifactId>sample-thirdlevel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sample-firstlevel</name>
-    <description>sample-firstlevel</description>
+    <name>sample-thirdlevel</name>
+    <description>sample-thirdlevel</description>
     <url/>
     <licenses>
         <license/>
@@ -31,7 +31,7 @@
     <dependencies>
         <dependency>
             <groupId>org.lyflexi</groupId>
-            <artifactId>firstlevel-robotstarter</artifactId>
+            <artifactId>thirdlevel-robotstarter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

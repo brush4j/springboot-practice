@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lyflexi</groupId>
-    <artifactId>samples-starter</artifactId>
+    <artifactId>custom-robot-starter-samples</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>samples-starter</name>
-    <description>samples-starter</description>
+    <name>custom-robot-starter-samples</name>
+    <description>custom-robot-starter-samples</description>
     <packaging>pom</packaging>
     <modules>
         <module>sample-firstlevel</module>

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.lyflexi</groupId>
-        <artifactId>samples-starter</artifactId>
+        <artifactId>custom-robot-starter-samples</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.lyflexi</groupId>
