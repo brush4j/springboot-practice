@@ -49,3 +49,7 @@ DelegatingWebMvcConfiguration->WebMvcConfigurerComposite->WebMvcConfigurer，这
 
 - 解决第一个问题，将我们自己的参数解析器TimeStampRequestBodyResolver注册到Spring MVC中
 - 解决第二个问题，实现@RequestBody注解的增强，所以要把RequestResponseBodyMethodProcessor传给我们的TimeStampRequestBodyResolver
+
+因此通过组合，具体有两种表现形式：
+- 委托
+- 装饰器
