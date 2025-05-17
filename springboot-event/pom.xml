@@ -29,6 +29,8 @@
     <module>event-v4</module>
 <!--    公司内或者普通的tedious解决方案-->
     <module>event-v5</module>
+    <!--给事件多播器设置自定义线程池，实现异步通知-->
+    <module>event-v6</module>
   </modules>
   <scm>
     <connection/>
