@@ -16,6 +16,12 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 public class GreetingServiceRegistrar implements ImportBeanDefinitionRegistrar {
 
+    /***
+     * 1、importingClassMetadata：提供有关正在导入的类的元数据信息，如类名、注解等。
+     * 2、registry：用于注册 Bean 定义的 BeanDefinitionRegistry，可以使用这个注册中心来添加、移除或修改 Bean 定义。
+     * @param importingClassMetadata annotation metadata of the importing class
+     * @param registry current bean definition registry
+     */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         // 动态注册 EnglishGreetingService
