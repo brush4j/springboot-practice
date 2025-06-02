@@ -1,0 +1,13 @@
+Spring容器在启动时会扫描指定的包路径，查找并解析带有特定注解（如@Component, @Service, @Repository, @Controller, @Configuration等）的类，当遇到@Import注解时，它会特别处理。
+
+对于每个@Import注解，Spring会查看其值（即要导入的类），并检查这些类是否实现了ImportBeanDefinitionRegistrar接口，如果实现了，就会实例化这些类，并准备调用它们的registerBeanDefinitions方法,执行自定义Bean注册逻辑
+
+对于每个实现了ImportBeanDefinitionRegistrar的类，Spring会调用其registerBeanDefinitions方法，registerBeanDefinitions方法接收两个参数：
+- 一个是AnnotationMetadata，它包含了关于正在被处理的注解类的元数据（如类名、方法、其他注解等）；
+- 另一个是BeanDefinitionRegistry，它是一个允许操作容器中Bean定义的注册表。
+
+在这个方法中，开发者可以编写任意逻辑来创建和注册Bean定义，这通常涉及到创建BeanDefinition对象（如GenericBeanDefinition），设置其属性（如bean类名、作用域、依赖等），然后使用BeanDefinitionRegistry的registerBeanDefinition方法将其注册到容器中。
+
+在调用了所有ImportBeanDefinitionRegistrar实现类的registerBeanDefinitions方法后，Spring容器会继续其（BeanDefinition对象）初始化过程，包括创建和初始化所有已注册的Bean实例。
+
+
