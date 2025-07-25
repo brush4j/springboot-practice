@@ -14,7 +14,17 @@ import com.lyflexi.springboottx.model.po.UserPo;
  * @version: 1.0
  */
 public interface IUserService extends IService<UserPo> {
-    void process(UserParam param);
-    UserPo queryById(Long id);
-    void testTransactionIsolation(UserParam param);
+    /**
+     * REQUIRED_NEW模拟T2事务读操作
+     * @param id
+     * @return
+     */
+    UserPo getByIdOfRequiredNew(Long id);
+
+    /**
+     * REQUIRED_NEW模拟T2事务写操作
+     * @param userPo
+     * @return
+     */
+    Boolean updateByIdOfRequiredNew(UserPo userPo);
 }

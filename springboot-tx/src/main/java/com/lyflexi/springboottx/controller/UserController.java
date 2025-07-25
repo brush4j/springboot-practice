@@ -34,7 +34,6 @@ public class UserController {
      **/
     @PostMapping(value = "/add")
     public void add (@RequestBody UserParam param) {
-        userService.process(param);
     }
 
     /**
@@ -46,6 +45,5 @@ public class UserController {
      **/
     @PostMapping(value = "/add2")
     public void add2 (@RequestBody UserParam param) {
-        userService.testTransactionIsolation(param);
     }
 }
