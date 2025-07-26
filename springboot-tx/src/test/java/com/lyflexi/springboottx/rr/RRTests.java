@@ -15,14 +15,17 @@ class RRTests {
     @Autowired
     private IUserService userService;
     /**
-     * @description: 默认情况下自动提交模式，随心所欲的查询刚刚新增的记录
+     * @description: 如果Read View视图的creator_trx_id，在undolog快照链中存在
+     *
+     * 那么数据记录的最后一次更新操作的事务就是当前事务，该版本的记录对当前事务可见
      * @author: hmly
      * @date: 2025/7/25 21:38
      * @param: []
      * @return: void
      **/
     @Test
-    public void autoCommit() {
+    @Transactional
+    public void testRRSnapshootRead() {
         UserPo userPo = new UserPo();
         userPo.setName("autoCommit");
         userPo.setAge(30);
@@ -39,38 +42,5 @@ class RRTests {
         log.info("byId3={}", byId3);
     }
 
-    @Test
-    @Transactional(rollbackFor = Exception.class)
-    public void testRC() {
-        UserPo userPo = new UserPo();
-        userPo.setName("autoCommit");
-        userPo.setAge(30);
-        userService.save(userPo);
-        log.info("add success...");
-        // 在T2事务中查询数据
-        UserPo result = userService.getByIdOfRequiredNew(userPo.getId());
-        log.info("事务2：新事务查询结果=[{}]", result);
-        // 当前事务中查询数据
-        UserPo currentTxResult = userService.getById(userPo.getId());
-        log.info("事务1：当前事务查询结果=[{}]", currentTxResult);
-    }
-
-    @Test
-    @Transactional(rollbackFor = Exception.class)
-    public void testRR() {
-        UserPo userPo = new UserPo();
-        userPo.setName("autoCommit");
-        userPo.setAge(30);
-        userService.save(userPo);
-        log.info("add success...{}",userPo);
-        // 在T1事务自身可以更新数据
-        userPo.setAge(40);
-        userService.updateById(userPo);
-        log.info("T1事务 update success...");
-        // 在T2事务中更新数据被阻塞
-        userPo.setAge(50);
-        Boolean b = userService.updateByIdOfRequiredNew(userPo);//RR隔离级别下，T2事务被阻塞禁止更新，保证T1事务多次读取一致性
-        log.info("事务T2：能否更新数据=[{}]", b);
-    }
 
 }

@@ -17,18 +17,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Slf4j
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserPo> implements IUserService {
 
-    @Override
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
-    public UserPo getByIdOfRequiredNew(Long id) {
-        UserPo user = this.getById(id);
-        log.info("T2事务中查询结果：[{}]", user);
-        return user;
-    }
-
-    @Override
-    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
-    public Boolean updateByIdOfRequiredNew(UserPo userPo) {
-        return this.updateById(userPo);
-    }
-
 }
